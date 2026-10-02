@@ -1,0 +1,153 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #120000;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow: hidden;
+}
+
+
+.container{
+    width: 470px;
+    height: 540px;
+
+    position: relative;
+    z-index: 1;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.10) 0%,
+        rgba(30,0,0,0.15) 100%
+    );
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(5px);
+
+    box-shadow:
+    0 0 20px rgba(0,0,0,0.5),
+    0 0 40px rgba(255,0,0,0.05);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h1{
+    color: #FFC400;
+
+    margin-top: 60px;
+
+    font-size: 38px;
+    font-weight: 400;
+}
+
+form{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 60px;
+}
+
+.input-box{
+    width: 240px;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 45px;
+}
+
+.input-box label{
+    color: #FFC400;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 34px;
+
+    background: rgba(43,38,37,0.65);
+
+    border: none;
+    border-radius: 5px;
+
+    outline: none;
+
+    padding-left: 10px;
+
+    color: white;
+
+    transition: 0.3s;
+}
+
+.input-box input:focus{
+    border: 1px solid #FFC400;
+
+    box-shadow:
+    0 0 8px rgba(255,196,0,0.4);
+}
+
+button{
+    width: 195px;
+    height: 40px;
+
+    margin-top: 15px;
+
+    background: #2B2625;
+
+    border: none;
+    border-radius: 5px;
+
+    color: #D9D9D9;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #3b3432;
+
+    transform: scale(1.03);
+}
+
+.register{
+    margin-top: 55px;
+
+    color: #8C8482;
+
+    font-size: 16px;
+
+    text-decoration: underline;
+
+    transition: 0.3s;
+}
+
+.register:hover{
+    color: #FFC400;
+}
+

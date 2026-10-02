@@ -1,0 +1,473 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(90, 0, 20, 0.15),
+            transparent 42%
+        ),
+        #050505;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   PÁGINA
+========================================= */
+
+.login-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    position: relative;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.container {
+    width: 100%;
+    max-width: 558px;
+
+    padding: 82px 55px 43px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717 0%,
+            #111111 100%
+        );
+
+    border: 1px solid rgba(255, 0, 60, 0.45);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 35px rgba(255, 0, 55, 0.05),
+        inset 0 0 30px rgba(255, 255, 255, 0.01);
+
+    position: relative;
+}
+
+
+/* =========================================
+   LOGO / MARCA
+========================================= */
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 350px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter:
+        brightness(0)
+        invert(1);
+
+    opacity: 0.85;
+
+    margin-bottom: 28px;
+}
+
+
+/* Texto abaixo da marca */
+
+.slogan {
+    color: #777777;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+.login-form {
+    width: 100%;
+}
+
+
+/* =========================================
+   INPUT BOX
+========================================= */
+
+.input-box {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #d5d5d5;
+
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+/* =========================================
+   WRAPPER DO INPUT
+========================================= */
+
+.input-wrapper {
+    width: 100%;
+    height: 50px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background: #202020;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Ícone */
+
+.input-wrapper::before {
+    width: 48px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #777777;
+
+    border-right: 1px solid #303030;
+
+    font-size: 16px;
+}
+
+
+/* Ícone de e-mail */
+
+.email-icon::before {
+    content: "✉";
+}
+
+
+/* Ícone de senha */
+
+.password-icon::before {
+    content: "🔒";
+
+    font-size: 14px;
+    filter: grayscale(1);
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-wrapper input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 15px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #eeeeee;
+
+    font-size: 13px;
+}
+
+.input-wrapper input::placeholder {
+    color: #656565;
+}
+
+.input-wrapper:focus-within {
+    border-color: rgba(255, 0, 60, 0.65);
+
+    box-shadow:
+        0 0 0 2px rgba(255, 0, 60, 0.08);
+}
+
+
+/* =========================================
+   BOTÃO ENTRAR
+========================================= */
+
+.btn-login {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 28px;
+
+    border: none;
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff1648 0%,
+            #ff073d 100%
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    box-shadow:
+        0 8px 25px rgba(255, 0, 55, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.btn-login:hover {
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 10px 30px rgba(255, 0, 55, 0.38);
+
+    transform: translateY(-1px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+
+/* Símbolo do botão */
+
+.login-symbol {
+    font-size: 17px;
+    font-weight: bold;
+
+    transform: rotate(180deg);
+}
+
+
+/* =========================================
+   DIVISOR
+========================================= */
+
+.divider {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    margin: 30px 0;
+
+    color: #555555;
+
+    font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: #333333;
+}
+
+.divider span {
+    padding: 0 14px;
+}
+
+
+/* =========================================
+   BOTÃO CADASTRAR
+========================================= */
+
+.btn-register {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid #3b3b3b;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #dddddd;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn-register:hover {
+    background: #1d1d1d;
+
+    border-color: #555555;
+
+    color: #ffffff;
+}
+
+.user-symbol {
+    font-size: 15px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    margin-top: 22px;
+
+    color: #4c4c4c;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .login-page {
+        padding: 20px 15px;
+    }
+
+    .container {
+        max-width: 100%;
+
+        padding: 55px 28px 32px;
+
+        border-radius: 16px;
+    }
+
+    .logo {
+        width: 135px;
+
+        margin-bottom: 65px;
+    }
+
+    .slogan {
+        font-size: 8px;
+
+        letter-spacing: 3.5px;
+    }
+
+    footer {
+        font-size: 9px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .container {
+        padding: 45px 20px 28px;
+    }
+
+    .logo {
+        width: 120px;
+
+        margin-bottom: 55px;
+    }
+
+    .slogan {
+        font-size: 7px;
+
+        letter-spacing: 2.5px;
+    }
+
+    .input-wrapper,
+    .btn-login,
+    .btn-register {
+        height: 48px;
+    }
+}

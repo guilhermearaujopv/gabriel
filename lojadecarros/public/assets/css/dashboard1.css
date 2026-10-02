@@ -1,0 +1,403 @@
+:root {
+    --imagem-fundo: url("porsche1.jpg");
+    --imagem-posicao: center center; 
+    --imagem-opacidade: 0.8;        
+
+    --fundo: #050505;
+    --vidro: rgba(18, 18, 18, 0.72);
+    --vidro-forte: rgba(24, 24, 24, 0.82);
+    --borda: rgba(255, 255, 255, 0.09);
+    --texto: #f2f2f2;
+    --muted: #8f8f95;
+    --vermelho: #ff0a3c;
+    --vermelho-suave: rgba(255, 10, 60, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fundo);
+    line-height: 1.5;
+}
+
+/* ---------- Ícones (SVG inline) ---------- */
+.ico {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+
+.fundo {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 70% 40% at 50% 0%, rgba(130, 0, 25, 0.55), transparent 70%),
+        var(--fundo);
+}
+
+/* camada da foto: sempre cobre a tela inteira, em qualquer tamanho */
+.fundo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--imagem-fundo);
+    background-size: cover;
+    background-position: var(--imagem-posicao);
+    background-repeat: no-repeat;
+    opacity: var(--imagem-opacidade);
+}
+
+/* camada escura por cima da foto, para o texto continuar legível */
+.fundo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 5, 5, 0.82) 0%, rgba(5, 5, 5, 0.5) 40%, rgba(5, 5, 5, 0.92) 100%);
+}
+
+/* ---------- Estrutura ---------- */
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-height: 100vh;
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 22px;
+    background: var(--vidro);
+    border: 1px solid var(--borda);
+    border-bottom-color: rgba(255, 10, 60, 0.45);
+    border-radius: 16px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+}
+
+.logo {
+    height: 42px;
+    width: auto;
+    display: block;
+}
+
+.brand-text {
+    padding-left: 18px;
+    border-left: 1px solid var(--borda);
+}
+
+.brand h1 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+}
+
+.brand small {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 8px 8px 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.pill-icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--vermelho-suave);
+    color: var(--vermelho);
+}
+
+.pill-icon .ico {
+    width: 16px;
+    height: 16px;
+}
+
+.pill strong {
+    color: var(--texto);
+    font-weight: 600;
+}
+
+.pill-sep {
+    color: #4a4a4f;
+}
+
+.pill a {
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: var(--vermelho);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: filter 0.2s, box-shadow 0.2s;
+}
+
+.pill a:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 16px rgba(255, 10, 60, 0.45);
+}
+
+/* ---------- Card principal ---------- */
+.card {
+    padding: 26px 28px 24px;
+    background: var(--vidro);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.boas-vindas {
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.boas-vindas h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.boas-vindas p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ---------- Módulos ---------- */
+.nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--vidro-forte);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    color: var(--texto);
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.nav a:hover {
+    border-color: rgba(255, 10, 60, 0.7);
+    background: rgba(34, 18, 22, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(255, 10, 60, 0.16);
+}
+
+.nav a:focus-visible {
+    outline: 2px solid var(--vermelho);
+    outline-offset: 3px;
+}
+
+.nav-icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: var(--vermelho-suave);
+    border: 1px solid rgba(255, 10, 60, 0.3);
+    color: var(--vermelho);
+}
+
+.nav-icon .ico {
+    width: 18px;
+    height: 18px;
+}
+
+.nav-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-titulo {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* descrição escondida para manter o card compacto */
+.nav-desc {
+    display: none;
+}
+
+.nav-seta {
+    width: 16px;
+    height: 16px;
+    color: var(--muted);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.nav a:hover .nav-seta {
+    color: var(--vermelho);
+    transform: translateX(3px);
+}
+
+/* ---------- Indicadores ---------- */
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.kpi {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px 12px 18px;
+    background: var(--vidro-forte);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* faixa vermelha lateral */
+.kpi::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: var(--vermelho);
+    box-shadow: 0 0 10px rgba(255, 10, 60, 0.7);
+}
+
+.kpi-icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--muted);
+}
+
+.kpi-icon .ico {
+    width: 16px;
+    height: 16px;
+}
+
+.kpi .label {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.kpi .value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+/* ---------- Observação ---------- */
+.observacao {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.observacao .ico {
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    color: var(--vermelho);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+    margin-top: auto;
+    padding-top: 6px;
+    text-align: center;
+    font-size: 12px;
+    color: #6b6b70;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 760px) {
+    .container {
+        padding: 16px 14px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pill {
+        flex-wrap: wrap;
+        border-radius: 16px;
+    }
+
+    .card {
+        padding: 24px 18px;
+    }
+
+    .boas-vindas h2 {
+        font-size: 21px;
+    }
+}
